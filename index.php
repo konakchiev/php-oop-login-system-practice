@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
     <head>
         <title>PHP OOP Login Form</title>
@@ -28,7 +27,7 @@
                     <!-- Pills content -->
                     <div class="tab-content">
                     <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-                        <form>
+                        <form method="post">
                         <div class="text-center mb-3">
                             <p>Sign in with:</p>
                             <button type="button" class="btn btn-link btn-floating mx-1">
@@ -88,7 +87,7 @@
                         </form>
                     </div>
                     <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
-                        <form>
+                        <form method="post">
                         <div class="text-center mb-3">
                             <p>Sign up with:</p>
                             <button type="button" class="btn btn-link btn-floating mx-1">
@@ -112,31 +111,31 @@
 
                         <!-- Name input -->
                         <div class="form-outline mb-4">
-                            <input type="text" id="registerName" class="form-control" />
+                            <input type="text" id="registerName" name="name" class="form-control" />
                             <label class="form-label" for="registerName">Name</label>
                         </div>
 
                         <!-- Username input -->
                         <div class="form-outline mb-4">
-                            <input type="text" id="registerUsername" class="form-control" />
+                            <input type="text" id="registerUsername" name="username" class="form-control" />
                             <label class="form-label" for="registerUsername">Username</label>
                         </div>
 
                         <!-- Email input -->
                         <div class="form-outline mb-4">
-                            <input type="email" id="registerEmail" class="form-control" />
+                            <input type="email" id="registerEmail" name="email" class="form-control" />
                             <label class="form-label" for="registerEmail">Email</label>
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
-                            <input type="password" id="registerPassword" class="form-control" />
+                            <input type="password" id="registerPassword" name="password" class="form-control" />
                             <label class="form-label" for="registerPassword">Password</label>
                         </div>
 
                         <!-- Repeat Password input -->
                         <div class="form-outline mb-4">
-                            <input type="password" id="registerRepeatPassword" class="form-control" />
+                            <input type="password" id="registerRepeatPassword" name="repeatpass" class="form-control" />
                             <label class="form-label" for="registerRepeatPassword">Repeat password</label>
                         </div>
 
@@ -150,7 +149,7 @@
                         </div>
 
                         <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
+                        <button type="submit" name="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
                         </form>
                     </div>
                     </div>
