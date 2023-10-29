@@ -1,3 +1,6 @@
+<?php 
+    include('includes/autoloader.php');
+?>
 <!DOCTYPE html>
 <html>
     <head>
