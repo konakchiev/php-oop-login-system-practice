@@ -10,11 +10,12 @@ if(isset($_POST['submit']))
 
     // Instantiate LoginController class
     include "autoloader.inc.php";
-    $signup = new LoginController($username, $password);
+    $login = new LoginController($username, $password);
 
-
+    
     // Running error handlers and user signup
-    $signup->loginUser();
+    $login->loginUser();
+
     // Goign back to front page
     header('Location: ../index.php?error=none');
 

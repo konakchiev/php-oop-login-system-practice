@@ -26,15 +26,15 @@ class Login extends Dbh
             $stmt = null;
             header('Location: ../index.php?error=wrongpassword');
             exit();
-        } else if ($checkPassword == true) {
-            $stmt = $this->connect()->prepare('SELECT * FROM users WHERE username = ? AND password = ?');
-
-            if($stmt->execute(array($username, $password))) {
+        } elseif ($checkPassword == true) {
+            $stmt = $this->connect()->prepare('SELECT * FROM users WHERE username = ?');
+            
+            if(!$stmt->execute(array($username))) {
                 $stmt = null;
                 header('Location ../index.php?error=stmtfailed');
                 exit();
             } 
-
+            
             if($stmt->rowCount() == 0)
             {   
                 $stmt = null;
@@ -47,6 +47,7 @@ class Login extends Dbh
             session_start();
             $_SESSION['username'] = $user[0]['username'];
             $_SESSION['id'] = $user[0]['id'];
+            echo $_SESSION['id'];
         }
         $stmt = null;
     }

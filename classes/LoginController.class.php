@@ -11,6 +11,17 @@ class LoginController extends Login
         $this->password = $password;
     }
 
+    public function loginUser()
+    {
+        if($this->emptyInput() == false ) {
+            header('Location: ../index.php?error=emptyinput');
+            exit();
+        }
+
+        $this->getUser($this->username, $this->password);
+    }
+    
+
     private function emptyInput()
     {
         $result;
@@ -24,15 +35,4 @@ class LoginController extends Login
         return $result;
     }
 
-    public function loginUser()
-    {
-        if($this->emptyInput() == false ) {
-            header('Location: ../index.php?error=emptyinput');
-            exit();
-        }
-
-        $this->getUser($this->username, $this->password);
-    }
-
-    
 }
