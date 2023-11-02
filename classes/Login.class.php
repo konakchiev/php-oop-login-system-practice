@@ -28,7 +28,7 @@ class Login extends Dbh
             exit();
         } elseif ($checkPassword == true) {
             $stmt = $this->connect()->prepare('SELECT * FROM users WHERE username = ?');
-            
+        
             if(!$stmt->execute(array($username))) {
                 $stmt = null;
                 header('Location ../index.php?error=stmtfailed');
