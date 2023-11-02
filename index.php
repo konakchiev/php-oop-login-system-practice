@@ -32,7 +32,7 @@
                             <a href="/php-oop-login-system-practice" class="active">Login</a><a href="/php-oop-login-system-practice/register.php">Register</a>
                         </div>
                         <form action="includes/login.inc.php" method="post">
-                            <input class="form-control" type="text" name="username" placeholder="E-mail Address" required>
+                            <input class="form-control" type="text" name="username" placeholder="Username" required>
                             <input class="form-control" type="password" name="password" placeholder="Password" required>
                             <div class="form-button">
                                 <button id="submit" type="submit" name="submit" class="ibtn">Login</button>
