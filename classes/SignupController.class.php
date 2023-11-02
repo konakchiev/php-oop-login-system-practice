@@ -1,6 +1,6 @@
 <?php
 
-class SignupController
+class SignupController extends Signup
 {
 
     private $name;
@@ -82,6 +82,50 @@ class SignupController
 
         return $result;
 
+    }
+
+    private function userChecker()
+    {
+        $result;
+
+        if(!$this->checkUser($this->uid, $this->email)) {
+            $result = false;
+        } else {
+            $result= true;
+        }
+
+        return $result;
+    }
+
+
+    public function signupUser()
+    {
+        if($this->emptyInput() == false) {
+            header('Location: ../index.php?error=emptyinput');
+            exit();
+        }
+
+        if($this->invalidUsername() == false) {
+            header('Location: ../index.php?error=username');
+            exit();
+        }
+
+        if($this->invalidEmail() == false) {
+            header('Location: ../index.php?error=email');
+            exit();
+        }
+
+        if($this->checkPassword() == false) {
+            header('Location: ../index.php?error=email');
+            exit();
+        }
+
+        if($this->userChecker() == false) {
+            header('Location: ../index.php?error=password');
+            exit();
+        }
+
+        $this->setUser($this->uid, $this->password, $this->email); 
     }
 
 }
