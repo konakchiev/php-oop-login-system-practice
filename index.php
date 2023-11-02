@@ -1,6 +1,5 @@
 <?php 
-    include('includes/autoloader.php');
-    session_start();
+    include('core/init.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
