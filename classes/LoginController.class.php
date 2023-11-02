@@ -11,20 +11,10 @@ class LoginController extends Login
         $this->password = $password;
     }
 
-    public function loginUser()
-    {
-        if($this->emtpyInput() == false ) {
-            header('Location: ../index.php?error=emptyinput');
-            exit();
-        }
-
-        $this->getUser($this->username, $this->password);
-    }
-
     private function emptyInput()
     {
         $result;
-        if(!empty($this->username) || empty($this->password) )
+        if(empty($this->username) || empty($this->password) )
         {
             $result = false;
         } else {
@@ -33,4 +23,16 @@ class LoginController extends Login
 
         return $result;
     }
+
+    public function loginUser()
+    {
+        if($this->emptyInput() == false ) {
+            header('Location: ../index.php?error=emptyinput');
+            exit();
+        }
+
+        $this->getUser($this->username, $this->password);
+    }
+
+    
 }

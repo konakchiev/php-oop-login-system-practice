@@ -10,7 +10,7 @@ if(isset($_POST['submit']))
     $passwordRepeat = $_POST['passwordrep'];
 
     // Instantiate SignupController class
-    include "autoloader.php";
+    include "autoloader.inc.php";
     $signup = new SignupController($name, $username, $email, $password, $passwordRepeat);
 
 

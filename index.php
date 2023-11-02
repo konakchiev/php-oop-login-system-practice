@@ -30,37 +30,17 @@
                     <!-- Pills content -->
                     <div class="tab-content">
                     <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-                        <form method="post">
-                        <div class="text-center mb-3">
-                            <p>Sign in with:</p>
-                            <button type="button" class="btn btn-link btn-floating mx-1">
-                            <i class="fab fa-facebook-f"></i>
-                            </button>
-
-                            <button type="button" class="btn btn-link btn-floating mx-1">
-                            <i class="fab fa-google"></i>
-                            </button>
-
-                            <button type="button" class="btn btn-link btn-floating mx-1">
-                            <i class="fab fa-twitter"></i>
-                            </button>
-
-                            <button type="button" class="btn btn-link btn-floating mx-1">
-                            <i class="fab fa-github"></i>
-                            </button>
-                        </div>
-
-                        <p class="text-center">or:</p>
-
+                        <form method="post" action="includes/login.inc.php">
+                
                         <!-- Email input -->
                         <div class="form-outline mb-4">
-                            <input type="email" id="loginName" class="form-control" />
+                            <input type="text" id="loginName" name="username" class="form-control" />
                             <label class="form-label" for="loginName">Email or username</label>
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
-                            <input type="password" id="loginPassword" class="form-control" />
+                            <input type="password" id="loginPassword" name="password" class="form-control" />
                             <label class="form-label" for="loginPassword">Password</label>
                         </div>
 
@@ -81,7 +61,7 @@
                         </div>
 
                         <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+                        <button type="submit" name="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
 
                         <!-- Register buttons -->
                         <div class="text-center">

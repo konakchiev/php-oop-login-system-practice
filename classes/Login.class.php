@@ -4,9 +4,10 @@ class Login extends Dbh
 {
     protected function getUser($username, $password)
     {
-        $stmt = $this->connect()->prapare('SELECT password FROM users WHERE username = ? OR email = ?');
+        
+        $stmt = $this->connect()->prepare('SELECT password FROM users WHERE username = ?');
 
-        if(!$stmt->execute(array($username, $email))) {
+        if(!$stmt->execute(array($username))) {
             $stmt = null;
             header('Location: ../index.php?error=stmtfailed');
             exit();
@@ -23,12 +24,12 @@ class Login extends Dbh
         $checkPassword = password_verify($password, $pwdHashed[0]['password']);
         if($checkPassword == false) {
             $stmt = null;
-            header('Location: ../index.php?error=wrongpasswod');
+            header('Location: ../index.php?error=wrongpassword');
             exit();
         } else if ($checkPassword == true) {
-            $stmt = $this->connect()->prepare('SELECT * FROM users WHERE username = ? OR email = ? AND password = ?');
+            $stmt = $this->connect()->prepare('SELECT * FROM users WHERE username = ? AND password = ?');
 
-            if($stmt->execute(array($username, $password, $email))) {
+            if($stmt->execute(array($username, $password))) {
                 $stmt = null;
                 header('Location ../index.php?error=stmtfailed');
                 exit();

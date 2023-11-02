@@ -1,5 +1,7 @@
 <?php
-
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+ini_set('log_errors', '0');
 if(isset($_POST['submit']))
 {
     // Grabing data
@@ -7,7 +9,7 @@ if(isset($_POST['submit']))
     $password = $_POST['password'];
 
     // Instantiate LoginController class
-    include "autoloader.php";
+    include "autoloader.inc.php";
     $signup = new LoginController($username, $password);
 
 
@@ -15,5 +17,6 @@ if(isset($_POST['submit']))
     $signup->loginUser();
     // Goign back to front page
     header('Location: ../index.php?error=none');
+
 }
     
