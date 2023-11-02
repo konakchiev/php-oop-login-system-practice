@@ -43,7 +43,7 @@ class SignupController extends Signup
     {
 
         $result;
-        if(!preg_match("/^[a-zA-Z0-9]*$/"), $this->username) {
+        if(!preg_match("/^[a-zA-Z0-9]*$/", $this->username)) {
             $result = false;
         } else {
             $result = true;
@@ -88,7 +88,7 @@ class SignupController extends Signup
     {
         $result;
 
-        if(!$this->checkUser($this->uid, $this->email)) {
+        if(!$this->checkUser($this->username, $this->email)) {
             $result = false;
         } else {
             $result= true;
@@ -125,7 +125,7 @@ class SignupController extends Signup
             exit();
         }
 
-        $this->setUser($this->uid, $this->password, $this->email); 
+        $this->setUser($this->username, $this->password, $this->email, $this->name); 
     }
 
 }

@@ -30,14 +30,14 @@
                         <div class="page-links">
                             <a href="/php-oop-login-system-practice">Login</a><a href="/php-oop-login-system-practice/register.php" class="active">Register</a>
                         </div>
-                        <form>
+                        <form method="post" action="includes/signup.inc.php">
                             <input class="form-control" type="text" name="name" placeholder="Full Name" required>
                             <input class="form-control" type="text" name="username" placeholder="Username" required>
                             <input class="form-control" type="email" name="email" placeholder="E-mail Address" required>
                             <input class="form-control" type="password" name="password" placeholder="Password" required>
-                            <input class="form-control" type="password" name="repeatpassword" placeholder="Repeat Password" required>
+                            <input class="form-control" type="password" name="passwordrep" placeholder="Repeat Password" required>
                             <div class="form-button">
-                                <button id="submit" type="submit" class="ibtn">Register</button>
+                                <button id="submit" type="submit" name="submit" class="ibtn">Register</button>
                             </div>
                         </form>
                     </div>
