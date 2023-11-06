@@ -5,7 +5,8 @@ class LoginController extends Login
     private $username;
     private $password;
 
-    public function __constuct($username, $password)
+    
+    public function __construct($username, $password)
     {
         $this->username = $username;
         $this->password = $password;
@@ -22,10 +23,25 @@ class LoginController extends Login
             return print_r(json_encode($return));
         }
 
+        if($this->checkUser($this->username) == false) {
+            $return = array(
+                'status' => 'usernotexist'
+            );
+
+            return print_r(json_encode($return));
+        }
+
         if($this->getUser($this->username, $this->password) == true)
         {
             $return = array(
-                'status' => 'success';
+                'status' => 'success'
+            );
+
+            return print_r(json_encode($return));
+            
+        } else {
+            $return = array(
+                'status' => 'wrong'
             );
 
             return print_r(json_encode($return));
@@ -37,7 +53,9 @@ class LoginController extends Login
     {
         if(empty($this->username) || empty($this->password))
         {
+        
             return false;
+            exit();
         } else {
             return true;
         }
