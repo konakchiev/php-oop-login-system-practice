@@ -1,13 +1,8 @@
 <?php 
+    error_reporting(E_ALL);
+    ini_set('display_errors', '1');
     include('core/init.php');
-    $user = DB::getInstance()->query("SELECT * FROM users WHERE username = ?", array('iliyan'));
 
-    if($user->error())
-    {   
-        echo 'error';
-    } else {
-        echo 'ok';
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
