@@ -7,6 +7,7 @@
  * 
  */
 
+
 class SignupController extends Signup
 {
     private $username;
