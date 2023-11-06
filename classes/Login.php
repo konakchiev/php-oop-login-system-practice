@@ -69,7 +69,7 @@ class Login extends DB
             if($user = $stmt->fetchAll(PDO::FETCH_ASSOC))
             {
                 session_start();
-                $_SESSION['username'] = 'konakchiev';
+                $_SESSION['username'] = $user[0]['name'];
                 $_SESSION['id'] = $user[0]['id'];
                 return true;
             }
