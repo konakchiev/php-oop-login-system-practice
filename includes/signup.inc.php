@@ -7,7 +7,7 @@ if(isset($_POST['submit']))
     $password = $_POST['password'];
     $email = $_POST['email'];
     $name = $_POST['name'];
-    $repeatPassword = $_POST['repeatPassword'];
+    $repeatPassword = $_POST['passwordRepeat'];
 
     require_once '../core/init.php';
 

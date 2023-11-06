@@ -69,6 +69,7 @@ class SignupController extends Signup
             );
 
             return print_r(json_encode($return));
+            exit();
         }
 
         if($this->validateEmail() == false)
@@ -78,6 +79,7 @@ class SignupController extends Signup
             );
 
             return print_r(json_encode($return));
+            exit();
         }
 
         if($this->valideteUsername() == false) 
@@ -87,6 +89,7 @@ class SignupController extends Signup
             );
 
             return print_r(json_encode($return));
+            exit();
         }
 
         if($this->passwordCheck() == false)
@@ -96,9 +99,33 @@ class SignupController extends Signup
             );
 
             return print_r(json_encode($return));
+            exit();
         }
 
-        $this->insertUser($this->username, $this->password, $this->email, $this->name);
+        if($this->checkUser($this->username, $this->email) == false)
+        {
+            $return = array(
+                'status' => 'userexists'
+            );
+
+            print_r(json_encode($return));
+            exit();
+        }
+
+        if($this->insertUser($this->username, $this->password, $this->email, $this->name) == false)
+        {
+            $return = array(
+                'status' => 'failedstmt'
+            );
+
+            print_r(json_encode($return));
+        } else {
+            $return = array(
+                'status' => 'success'
+            );
+
+            print_r(json_encode($return));
+        }
     }
 
 

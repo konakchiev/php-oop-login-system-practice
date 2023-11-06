@@ -3,6 +3,26 @@
 class Signup extends DB
 {
 
+    protected function checkUser($username, $email)
+    {
+        $stmt = parent::connect()->prepare('SELECT username, email FROM users WHERE username = :username OR email = :email');
+        $stmt->bindParam(":username", $username);
+        $stmt->bindParam(":email", $email);
+        
+        if(!$stmt->execute())
+        {
+            return false;
+        }
+
+        if($stmt->rowCount() > 0) {
+            return false;
+        } else {
+            return true;
+        }
+    
+        $stmt = null;
+    }
+
     protected function insertUser($username, $password, $email, $name)
     {
         $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
@@ -14,11 +34,10 @@ class Signup extends DB
 
         if(!$stmt->execute())
         {
-            $return = array(
-                'status' => 'failedstmt'
-            );
-
-            print_r(json_encode($return));
+            return false;
+        } else {
+            return true;
         }
+        $stmt = null;
     }
 }
