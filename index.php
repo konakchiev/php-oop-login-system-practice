@@ -6,7 +6,6 @@
  *  This project is for practice purpose only.
  * 
  */
-    require_once 'core/init.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
