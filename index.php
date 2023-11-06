@@ -1,12 +1,12 @@
 <?php 
-    /**
+ /**
  * 
  *  Created by Iliyan Konakchiev
  *  PHP OOP With AJAX Login/Register System
  *  This project is for practice purpose only.
  * 
  */
-    include('core/init.php');
+    require_once 'core/init.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

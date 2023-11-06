@@ -71,6 +71,7 @@ jQuery(document).ready(function(){
         jQuery.ajax({
             url: 'includes/login.inc.php',
             type: 'POST',
+            cache: false,
             data: {
                 username: username,
                 password: password,
@@ -86,7 +87,7 @@ jQuery(document).ready(function(){
                     jQuery('#alert').show();
                     jQuery('#alert').text(msg);
                     setTimeout(function () {
-                        window.location = "dashboard.php";
+                        window.location = "profile.php";
                     }, 1500);
                 } else if (data.status == 'usernotexist') {
                     jQuery('#alert-danger').show();

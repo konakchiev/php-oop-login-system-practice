@@ -6,8 +6,6 @@
  *  This project is for practice purpose only.
  * 
  */
-
-
 class LoginController extends Login
 {
     private $username;
@@ -39,7 +37,6 @@ class LoginController extends Login
             $return = array(
                 'status' => 'usernotexist'
             );
-
             return print_r(json_encode($return));
         }
 
@@ -50,9 +47,7 @@ class LoginController extends Login
             $return = array(
                 'status' => 'success'
             );
-
             return print_r(json_encode($return));
-            
         } else {
             $return = array(
                 'status' => 'wrong'
