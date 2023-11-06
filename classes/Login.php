@@ -1,8 +1,15 @@
 <?php
+/**
+ * 
+ *  Created by Iliyan Konakchiev
+ *  PHP OOP With AJAX Login/Register System
+ *  This project is for practice purpose only.
+ * 
+ */
 
 class Login extends DB
 {
-
+    //Method to check if the username exist
     protected function checkUser($username)
     {
         $stmt = parent::connect()->prepare("SELECT username FROM users WHERE username = :username");
@@ -17,7 +24,7 @@ class Login extends DB
         }
     }
 
-
+    // Method to login the user
     protected function getUser($username, $password)
     {
         $stmt = parent::connect()->prepare('SELECT password FROM users WHERE username = :username');

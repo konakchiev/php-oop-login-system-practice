@@ -59,4 +59,52 @@ jQuery(document).ready(function(){
 
     });
 
+
+
+
+    jQuery('#submitLogin').click(function(e){
+        e.preventDefault();
+ 
+        var username = jQuery('#username').val().trim();
+        var password = jQuery('#password').val().trim();
+ 
+        jQuery.ajax({
+            url: 'includes/login.inc.php',
+            type: 'POST',
+            data: {
+                username: username,
+                password: password,
+                submit: 1
+            },
+            success: function(status) {
+                var data = jQuery.parseJSON(status);
+                var msg = 'Login successfull! 👍👍. Redirecting...!';
+                var msgExist = 'Username does not exist. 😭';
+                var msgPassword = 'Wrong password.';
+                if(data.status == 'success') {
+                    jQuery('#alert-danger').hide();
+                    jQuery('#alert').show();
+                    jQuery('#alert').text(msg);
+                    setTimeout(function () {
+                        window.location = "dashboard.php";
+                    }, 1500);
+                } else if (data.status == 'usernotexist') {
+                    jQuery('#alert-danger').show();
+                    jQuery('#alert-danger').text(msgExist);
+                } else if (data.status == 'wrong') {
+                    jQuery('#alert-danger').show();
+                    jQuery('#alert-danger').text(msgPassword);
+                }
+            },
+            error: function (status) {
+                var data = jQuery.parseJSON(status);
+                var msg = 'Something went wrong!';
+                jQuery('#alert-danger').show();
+                jQuery('#alert-danger').text(msg);
+            }
+ 
+        });
+ 
+     });
+
 });

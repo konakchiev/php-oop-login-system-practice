@@ -1,6 +1,11 @@
 <?php 
-    error_reporting(E_ALL);
-    ini_set('display_errors', '1');
+    /**
+ * 
+ *  Created by Iliyan Konakchiev
+ *  PHP OOP With AJAX Login/Register System
+ *  This project is for practice purpose only.
+ * 
+ */
     include('core/init.php');
 ?>
 <!DOCTYPE html>
@@ -32,11 +37,13 @@
                         <div class="page-links">
                             <a href="/php-oop-login-system-practice" class="active">Login</a><a href="/php-oop-login-system-practice/register.php">Register</a>
                         </div>
-                        <form action="includes/login.inc.php" method="post">
-                            <input class="form-control" type="text" name="username" placeholder="Username" required>
-                            <input class="form-control" type="password" name="password" placeholder="Password" required>
+                        <div id="alert" class="alert"></div>
+                        <div class="alert alert-danger" id="alert-danger"></div>
+                        <form method="post">
+                            <input class="form-control" type="text" id="username" name="username" placeholder="Username" required>
+                            <input class="form-control" type="password" id="password" name="password" placeholder="Password" required>
                             <div class="form-button">
-                                <button id="submit" type="submit" name="submit" class="ibtn">Login</button>
+                                <button id="submitLogin" type="submit" name="submit" class="ibtn">Login</button>
                             </div>
                         </form>
                     </div>
@@ -48,5 +55,6 @@
 <script src="assets/js/popper.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/ajax.js"></script>
 </body>
 </html>

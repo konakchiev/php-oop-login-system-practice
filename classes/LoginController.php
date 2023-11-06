@@ -1,4 +1,11 @@
 <?php
+/**
+ * 
+ *  Created by Iliyan Konakchiev
+ *  PHP OOP With AJAX Login/Register System
+ *  This project is for practice purpose only.
+ * 
+ */
 
 class LoginController extends Login
 {
@@ -12,8 +19,11 @@ class LoginController extends Login
         $this->password = $password;
     }
 
+
+    //Method Login the user
     public function loginUser()
     {
+        //Check for empty inputs
         if($this->emptyInput() == false)
         {
             $return = array(
@@ -23,6 +33,7 @@ class LoginController extends Login
             return print_r(json_encode($return));
         }
 
+        //Check if username exist
         if($this->checkUser($this->username) == false) {
             $return = array(
                 'status' => 'usernotexist'
@@ -31,6 +42,8 @@ class LoginController extends Login
             return print_r(json_encode($return));
         }
 
+
+        //Login the user
         if($this->getUser($this->username, $this->password) == true)
         {
             $return = array(
@@ -49,6 +62,7 @@ class LoginController extends Login
         
     }
 
+    // Method to check for empty inputs
     private function emptyInput()
     {
         if(empty($this->username) || empty($this->password))

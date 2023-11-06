@@ -1,4 +1,11 @@
 <?php
+/**
+ * 
+ *  Created by Iliyan Konakchiev
+ *  PHP OOP With AJAX Login/Register System
+ *  This project is for practice purpose only.
+ * 
+ */
 
 class SignupController extends Signup
 {
