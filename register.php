@@ -31,8 +31,8 @@
                                 </div>
                             </a>
                         </div>
-                        <h3>Get more things done with Loggin platform.</h3>
-                        <p>Access to the most powerfull tool in the entire design and web industry.</p>
+                        <h3>Sign up.</h3>
+                        <p>This project is for practice purpose only.</p>
                         <div class="page-links">
                             <a href="/php-oop-login-system-practice">Login</a><a href="/php-oop-login-system-practice/register.php" class="active">Register</a>
                         </div>
